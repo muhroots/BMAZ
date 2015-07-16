@@ -1,0 +1,48 @@
+.event-item {
+	position: relative;
+	margin-bottom: 20px;
+	padding-left: 110px;
+	min-height: 95px;
+}
+
+.event-name {
+	font-size: 26px;
+	font-weight: 700;
+	line-height: 1.2555;
+	color: $color-contrast;
+}
+
+.event-location {
+	display: block;
+	font-size: 18px;
+	font-weight: 700;
+	color: $color-contrast;
+	opacity: .8;
+}
+
+.event-date {
+	position: absolute;
+	top: 0; left: 0;
+	display: inline-block;
+	padding: 20px 15px;
+	width: 95px;
+	background-color: $color-contrast;
+	text-align: center;
+	line-height: 1;
+
+	> span {
+		font-size: 30px;
+		font-weight: 700;
+		color: $color-highlighter;
+
+		+ span {
+			text-transform: uppercase;
+			display: block;
+		}
+		
+
+		&.month {
+			font-size: 24px;
+		}
+	}
+}

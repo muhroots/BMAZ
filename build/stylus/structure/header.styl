@@ -1,8 +1,31 @@
 .header {
 	height: 55px;
+	margin-bottom: 40px;
 	background-color: $color-base;
 }
 
 .nav-header {
 	float: right;
+
+	.list-item {
+		&:first-child {
+			margin-right: 25px;
+		}
+	}
+}
+
+.nav-anchor {
+	display: block;
+	padding: 18px 5px;
+	transition: color 200ms linear;
+	text-transform: uppercase;
+	text-decoration: none;
+	font-size: 14px;
+	color: rgba(255, 255, 255, .55);
+
+	&:hover {
+		transition: color 200ms linear;
+		text-decoration: underline;
+		color: rgba(255, 255, 255, .7);
+	}
 }
