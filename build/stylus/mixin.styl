@@ -1,0 +1,66 @@
+// MIXINS
+
+clearfix()
+  zoom 1
+  &:after
+  &:before
+    content ""
+    display table
+  &:after
+    clear both
+
+font-size(value) {  
+    font-size: value; /* add PX (or original value) as backup */
+
+    if (value is inherit) {
+        /* do nothing, "inherit" has no unit */
+    } else {
+        font-size: remify(value);
+    }
+}
+
+remify(value) { /* separate mixin, so it can be used elsewhere */  
+    u = unit(value);
+
+    if (u is 'px') {
+        return unit(value/16, 'rem');
+    } else {
+        return unit(value, u);
+    }
+}
+
+ 
+vendor(prop, args)
+  -webkit-{prop} args
+  -moz-{prop} args
+  -ms-{prop} args
+  -o-{prop} args
+  {prop} args
+ 
+  
+animation()
+  vendor('animation', arguments)
+ 
+transition()
+  vendor('transition', arguments)
+ 
+transform()
+  vendor('transform', arguments)
+
+box-sizing()
+  vendor('box-sizing', arguments)
+
+column-count()
+  vendor('column-count', arguments)
+
+column-width()
+  vendor('column-width', arguments)
+
+// GRADIENT
+
+linear-gradient(start_color, end_color, start = left top, end = left bottom)
+  mozstart = top if start = left top
+  background start_color
+  background -moz-linear-gradient(mozstart, start_color 0%, end_color 100%)
+  background -webkit-gradient(linear, start, end, color-stop(0%, start_color), color-stop(100%, end_color))
+  -webkit-background-origin padding-box
